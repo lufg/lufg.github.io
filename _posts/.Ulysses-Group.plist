@@ -5,10 +5,111 @@
 	<key>resolutionData</key>
 	<dict>
 		<key>sheetClusters</key>
-		<dict/>
+		<dict>
+			<key>2016-06-08-wo-de-xiao-zhuan.md</key>
+			<dict>
+				<key>lastModification</key>
+				<real>532185539.27192199</real>
+				<key>version</key>
+				<dict>
+					<key>d3bf10042ae0e778dd8b084451290b20c614ffa8dec54be7c50a7e38a0a85602</key>
+					<integer>6</integer>
+				</dict>
+			</dict>
+			<key>2016-08-19-shuang-pin.md</key>
+			<dict>
+				<key>lastModification</key>
+				<real>532185539.27192301</real>
+				<key>version</key>
+				<dict>
+					<key>d3bf10042ae0e778dd8b084451290b20c614ffa8dec54be7c50a7e38a0a85602</key>
+					<integer>6</integer>
+				</dict>
+			</dict>
+			<key>2017-10-26-are-you-lifelong-learner.md</key>
+			<dict>
+				<key>lastModification</key>
+				<real>532185539.27192402</real>
+				<key>version</key>
+				<dict>
+					<key>d3bf10042ae0e778dd8b084451290b20c614ffa8dec54be7c50a7e38a0a85602</key>
+					<integer>6</integer>
+				</dict>
+			</dict>
+			<key>2017-11-03-10-reasons-learning-lists.md</key>
+			<dict>
+				<key>explicitUnassignment</key>
+				<true/>
+				<key>firstUnassignment</key>
+				<real>532184523.01789302</real>
+				<key>lastModification</key>
+				<real>532185539.27192497</real>
+				<key>version</key>
+				<dict>
+					<key>d3bf10042ae0e778dd8b084451290b20c614ffa8dec54be7c50a7e38a0a85602</key>
+					<integer>6</integer>
+				</dict>
+			</dict>
+			<key>2017-11-03-ten-reasons-learning-lists.md</key>
+			<dict>
+				<key>lastModification</key>
+				<real>532186803.88233</real>
+				<key>version</key>
+				<dict>
+					<key>d3bf10042ae0e778dd8b084451290b20c614ffa8dec54be7c50a7e38a0a85602</key>
+					<integer>19</integer>
+				</dict>
+			</dict>
+			<key>2017-11-09-an-learning-practice.md</key>
+			<dict>
+				<key>explicitUnassignment</key>
+				<true/>
+				<key>firstUnassignment</key>
+				<real>532184523.01710403</real>
+				<key>lastModification</key>
+				<real>532185539.27192199</real>
+				<key>version</key>
+				<dict>
+					<key>d3bf10042ae0e778dd8b084451290b20c614ffa8dec54be7c50a7e38a0a85602</key>
+					<integer>6</integer>
+				</dict>
+			</dict>
+			<key>2017-11-12-childhood.md</key>
+			<dict>
+				<key>lastModification</key>
+				<real>532185609.348001</real>
+				<key>version</key>
+				<dict>
+					<key>d3bf10042ae0e778dd8b084451290b20c614ffa8dec54be7c50a7e38a0a85602</key>
+					<integer>11</integer>
+				</dict>
+			</dict>
+		</dict>
 	</dict>
 	<key>sheetClusters</key>
-	<array/>
+	<array>
+		<array>
+			<string>2017-11-09-an-learning-practice.md</string>
+		</array>
+		<array>
+			<string>2016-06-08-wo-de-xiao-zhuan.md</string>
+		</array>
+		<array>
+			<string>2017-11-03-ten-reasons-learning-lists.md</string>
+		</array>
+		<array>
+			<string>2016-08-19-shuang-pin.md</string>
+		</array>
+		<array>
+			<string>2017-10-26-are-you-lifelong-learner.md</string>
+		</array>
+		<array>
+			<string>2017-11-03-10-reasons-learning-lists.md</string>
+		</array>
+		<array>
+			<string>2017-11-12-childhood.md</string>
+		</array>
+	</array>
 	<key>storeFormatVersion</key>
 	<integer>1</integer>
 	<key>versioning</key>
@@ -16,7 +117,7 @@
 		<key>sheetClusters</key>
 		<dict>
 			<key>d3bf10042ae0e778dd8b084451290b20c614ffa8dec54be7c50a7e38a0a85602</key>
-			<integer>4</integer>
+			<integer>20</integer>
 		</dict>
 	</dict>
 </dict>
