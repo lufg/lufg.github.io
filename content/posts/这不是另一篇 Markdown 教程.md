@@ -3,7 +3,7 @@ title: "这不是另一篇 Markdown 教程"
 date: 2017-11-28
 ---
 
-![这不是另一篇 Markdown 教程](https://picsum.photos/seed/Markdown/800/400)
+![这不是另一篇 Markdown 教程](https://image.pollinations.ai/prompt/markdown%20code%20syntax%20highlighting%20text%20editor%20minimalism%20screen?width=800&height=400&nologo=true)
 
 ## 1
 
