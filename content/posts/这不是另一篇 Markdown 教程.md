@@ -1,11 +1,9 @@
 ---
-layout: post
-title: 这不是另一篇 Markdown 教程
+title: "这不是另一篇 Markdown 教程"
 date: 2017-11-28
-categories: 写作
-tags: [写作]
-description: 首先，请大声告诉自己：「我是一个投资者！」这不是心理暗示，这是一个事实，一个对自己的重要认知。当你清楚的确认了这一点，你的行为就会因此改变，你的人生也会因此不同。
 ---
+
+![这不是另一篇 Markdown 教程](https://picsum.photos/seed/Markdown/800/400)
 
 ## 1
 
