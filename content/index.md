@@ -1,7 +1,7 @@
 ---
-title: Welcome to My Quartz Blog
+title: 欢迎来到我的记忆
 ---
 
-Hello! This is my new blog powered by Quartz and Obsidian.
+你好！当每篇文章都可能被AI润色，这里的文字都是一个键一个键，啪嗒啪嗒手打出来的，竟然就变得弥足珍贵。
 
-See my posts in the [[posts]] folder.
+点击 [[posts]] 就能看到我的絮絮叨叨。
