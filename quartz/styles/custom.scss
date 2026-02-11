@@ -3,9 +3,18 @@
 // --- Custom Styles from Website Format ---
 
 // 1. Layout Container
+// Override grid to remove sidebar columns since we are not using them
+.page > #quartz-body {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas: 
+        "grid-header"
+        "grid-center"
+        "grid-footer" !important;
+}
+
 // Center the content and limit width
 .page .center {
-    max-width: 680px !important;
+    max-width: 900px !important;
     margin: 0 auto;
     padding: 16px 20px;
 }
@@ -25,10 +34,12 @@ header {
     border-bottom: 1px solid var(--lightgray);
     
     // Brand (Page Title)
-    h1 {
+    .page-title {
         margin: 0;
-        font-size: 1.1rem !important;
-        font-weight: 700;
+        // flex-grow: 1; // Handled by Spacer component
+        font-size: 1.8rem !important;
+        font-weight: 800;
+        letter-spacing: -0.03em;
         white-space: nowrap;
         a { 
             color: var(--dark); 
@@ -38,21 +49,50 @@ header {
 
     // Search Box
     .search {
-        flex-grow: 1;
-        // Quartz Search is an icon by default. 
-        // We can make it bigger or just accept it.
-        // Let's try to make the search bar look like an input if possible
-        // But the search component structure is complex. 
-        // We'll stick to alignment for now.
+        flex-grow: 0;
+        
+        .search-button {
+            padding: 4px;
+            background: transparent;
+            border: none; // No border
+            box-shadow: none; // No shadow
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            // Hide the text "Search" or "搜索"
+            p {
+                display: none;
+            }
+            
+            // Ensure icon size
+            svg {
+                width: 18px;
+                height: 18px;
+                stroke: var(--dark);
+                min-width: 18px;
+            }
+            
+            &:hover {
+                background-color: transparent; // No hover background
+                opacity: 0.7; // Slight opacity change instead
+            }
+        }
     }
     
     // Theme Toggle
     .darkmode {
         margin: 0;
+        padding: 4px;
         svg {
             width: 20px;
             height: 20px;
             fill: var(--dark);
+            transition: transform 0.2s ease;
+        }
+        &:hover svg {
+             transform: rotate(15deg);
         }
     }
 }

@@ -60,7 +60,7 @@ export default ((userOpts?: Partial<Options>) => {
                               class="internal tag-link"
                               href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
                             >
-                              #{tag}
+                              #{tag.replace(/^#+/, "")}
                             </a>
                           </li>
                         ))}
