@@ -6,7 +6,7 @@
 // Override grid to remove sidebar columns since we are not using them
 .page > #quartz-body {
     grid-template-columns: minmax(0, 1fr) !important;
-    grid-template-areas: 
+    grid-template-areas:
         "grid-header"
         "grid-center"
         "grid-footer" !important;
@@ -14,9 +14,11 @@
 
 // Center the content and limit width
 .page .center {
+    width: 100%;
     max-width: 900px !important;
     margin: 0 auto;
     padding: 16px 20px;
+    box-sizing: border-box;
 }
 
 // Hide sidebars completely (they should be empty now, but just in case)
@@ -32,7 +34,7 @@ header {
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-bottom: 1px solid var(--lightgray);
-    
+
     // Brand (Page Title)
     .page-title {
         margin: 0;
@@ -41,8 +43,8 @@ header {
         font-weight: 800;
         letter-spacing: -0.03em;
         white-space: nowrap;
-        a { 
-            color: var(--dark); 
+        a {
+            color: var(--dark);
             text-decoration: none;
         }
     }
@@ -50,7 +52,7 @@ header {
     // Search Box
     .search {
         flex-grow: 0;
-        
+
         .search-button {
             padding: 4px;
             background: transparent;
@@ -60,12 +62,12 @@ header {
             display: flex;
             align-items: center;
             justify-content: center;
-            
-            // Hide the text "Search" or "搜索"
+
+            // Hide text "Search" or "搜索"
             p {
                 display: none;
             }
-            
+
             // Ensure icon size
             svg {
                 width: 18px;
@@ -73,14 +75,14 @@ header {
                 stroke: var(--dark);
                 min-width: 18px;
             }
-            
+
             &:hover {
                 background-color: transparent; // No hover background
                 opacity: 0.7; // Slight opacity change instead
             }
         }
     }
-    
+
     // Theme Toggle
     .darkmode {
         margin: 0;
@@ -107,7 +109,7 @@ header {
 
 // 4. Post List (Recent Notes)
 .recent-notes {
-    // Hide the "Recent Notes" title
+    // Hide the default "Recent Notes" title
     > h3 { display: none; }
 
     ul.recent-ul {
@@ -121,7 +123,7 @@ header {
         border-bottom: 1px solid transparent;
         border-top: 1px solid var(--lightgray);
         margin-top: 0 !important;
-        
+
         &:first-child {
             border-top: none;
         }
@@ -135,23 +137,23 @@ header {
                 display: flex;
                 align-items: center;
                 gap: 10px;
-                
+
                 .post-date {
                     font-variant-numeric: tabular-nums;
                 }
-                
+
                 ul.tags {
                     display: inline-flex;
                     gap: 10px;
                     margin: 0;
                     padding: 0;
                     list-style: none;
-                    
+
                     li {
                         margin: 0;
                         padding: 0;
                         border: none;
-                        
+
                         a.tag-link {
                             background: none;
                             border: none;
@@ -160,7 +162,7 @@ header {
                             color: var(--secondary);
                             font-weight: 500;
                             opacity: 0.9;
-                            
+
                             &:hover {
                                 opacity: 1;
                                 text-decoration: underline;
@@ -177,13 +179,13 @@ header {
                 font-size: 1.1rem;
                 font-weight: 600;
                 line-height: 1.4;
-                
+
                 a {
                     color: var(--dark);
                     text-decoration: none;
                 }
             }
-            
+
             // Excerpt
             .post-excerpt {
                 font-size: 0.95rem;
@@ -200,7 +202,6 @@ header {
 }
 
 // Hide default Page Title on Index page content if needed
-// (We already removed it from layout, but index.md content might render title if frontmatter says so, usually Quartz renders article title)
 article > h1.article-title {
     display: none;
 }

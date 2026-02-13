@@ -46,28 +46,6 @@ export default ((userOpts?: Partial<Options>) => {
             return (
               <li class="recent-li">
                 <div class="section">
-                  <div class="post-meta">
-                    {page.dates && (
-                      <span class="post-date">
-                        <Date date={getDate(cfg, page)!} locale={cfg.locale} />
-                      </span>
-                    )}
-                    {opts.showTags && (
-                      <ul class="tags">
-                        {tags.map((tag) => (
-                          <li>
-                            <a
-                              class="internal tag-link"
-                              href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
-                            >
-                              #{tag.replace(/^#+/, "")}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                  
                   <div class="desc">
                     <h3>
                       <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
@@ -75,8 +53,25 @@ export default ((userOpts?: Partial<Options>) => {
                       </a>
                     </h3>
                   </div>
-
-                  <p class="post-excerpt">{page.frontmatter?.description ?? page.description}</p>
+                  {page.dates && (
+                    <p class="meta">
+                      <Date date={getDate(cfg, page)!} locale={cfg.locale} />
+                    </p>
+                  )}
+                  {opts.showTags && (
+                    <ul class="tags">
+                      {tags.map((tag) => (
+                        <li>
+                          <a
+                            class="internal tag-link"
+                            href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
+                          >
+                            {tag}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </li>
             )
