@@ -113,9 +113,6 @@ a {
       padding: 0;
     }
     &.tag-link {
-      &::before {
-        content: "#";
-      }
     }
   }
 

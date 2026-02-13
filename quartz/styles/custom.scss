@@ -13,9 +13,14 @@
 }
 
 // Center the content and limit width
-.page .center {
-    max-width: 900px !important;
+.page {
+    max-width: 70% !important;
     margin: 0 auto;
+}
+
+.page .center {
+    width: 100% !important;
+    max-width: 100% !important;
     padding: 16px 20px;
 }
 
