@@ -10,7 +10,7 @@
 // 2. Adjust main content grid to occupy full width
 .page > #quartz-body {
     grid-template-columns: minmax(0, 1fr) !important;
-    grid-template-areas: 
+    grid-template-areas:
         "grid-header"
         "grid-center"
         "grid-footer" !important;
@@ -24,4 +24,142 @@
 // 4. Specifically hide Graph view if it's still being rendered by any plugin
 .graph {
     display: none !important;
+}
+
+// 5. Pinchlime-style article enhancements
+article {
+    line-height: 1.8;
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+
+    a {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+// 6. Header improvements
+.page-header {
+    margin-bottom: 2rem;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+}
+
+// 7. Footer improvements
+footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--lightgray);
+    font-size: 0.9rem;
+    color: var(--gray);
+
+    a {
+        color: var(--gray);
+        text-decoration: underline;
+
+        &:hover {
+            color: var(--secondary);
+        }
+    }
+}
+
+// 8. Navigation links in header
+nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+nav a {
+    color: var(--darkgray);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--secondary);
+}
+
+@media (max-width: 600px) {
+    nav {
+        gap: 1rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+}
+
+// 9. Posts list - simple list with date and tags
+.section-ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.section-li {
+    margin-bottom: 1.5rem;
+}
+
+.section {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .meta {
+        color: var(--gray);
+        font-size: 0.9rem;
+        min-width: 100px;
+        opacity: 0.8;
+    }
+
+    .desc {
+        flex: 1;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 500;
+        display: inline;
+    }
+
+    .tags {
+        display: inline-flex;
+        gap: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    .tag-link {
+        font-size: 0.8rem;
+        color: var(--secondary);
+        background: none;
+        padding: 0.1rem 0.4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .meta {
+            min-width: auto;
+        }
+
+        .tags {
+            margin-left: 0;
+        }
+    }
 }

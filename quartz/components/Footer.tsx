@@ -5,17 +5,19 @@ import { i18n } from "../i18n"
 
 interface Options {
   links: Record<string, string>
+  customFooter?: string
 }
 
 export default ((opts?: Options) => {
   const Footer: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     const year = new Date().getFullYear()
     const links = opts?.links ?? []
+    const customFooter = opts?.customFooter
+
     return (
       <footer class={`${displayClass ?? ""}`}>
         <p>
-          {i18n(cfg.locale).components.footer.createdWith}{" "}
-          <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year}
+          {customFooter ? customFooter : `${i18n(cfg.locale).components.footer.createdWith} <a href="https://quartz.jzhao.xyz/">Quartz v${version}</a> © ${year}`}
         </p>
         <ul>
           {Object.entries(links).map(([text, link]) => (
@@ -30,4 +32,4 @@ export default ((opts?: Options) => {
 
   Footer.css = style
   return Footer
-}) satisfies QuartzComponentConstructor
+}) satisfies QuartzComponentConstructor<Options>

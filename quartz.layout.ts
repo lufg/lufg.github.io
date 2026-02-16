@@ -1,5 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import NavLinks from "./quartz/components/NavLinks"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -7,15 +8,22 @@ export const sharedPageComponents: SharedLayout = {
   header: [
     Component.PageTitle(),
     Component.Spacer(),
+    NavLinks({
+      links: [
+        { label: "Posts", href: "/posts/" },
+        { label: "About", href: "/about/" },
+      ],
+    }),
     Component.Search(),
     Component.Darkmode(),
   ],
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/lufrank",
+      RSS: "/index.xml",
     },
+    customFooter: "© 2026 Frank Lu",
   }),
 }
 
@@ -41,21 +49,24 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   left: [],
   right: [],
-  afterBody: [
-    Component.ConditionalRender({
-      component: Component.RecentNotes({ 
-        title: "", 
-        limit: 10,
-        filter: (f) => f.slug !== "index"
-      }),
-      condition: (page) => page.fileData.slug === "index",
-    }),
-  ],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [
+    Component.ConditionalRender({
+      component: Component.Breadcrumbs(),
+      condition: (page) => !page.fileData.slug?.startsWith("posts"),
+    }),
+    Component.ConditionalRender({
+      component: Component.ArticleTitle(),
+      condition: (page) => !page.fileData.slug?.startsWith("posts"),
+    }),
+    Component.ConditionalRender({
+      component: Component.ContentMeta(),
+      condition: (page) => !page.fileData.slug?.startsWith("posts"),
+    }),
+  ],
   left: [],
   right: [],
 }

@@ -43,11 +43,14 @@ export default (() => {
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
           <>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
             <link rel="stylesheet" href={googleFontHref(cfg.theme)} />
             {cfg.theme.typography.title && (
               <link rel="stylesheet" href={googleFontSubsetHref(cfg.theme, cfg.pageTitle)} />
             )}
+            {/* Source Han Sans CN (Noto Sans SC Simplified Chinese) */}
+            <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@aspect/adobe-source-han-sans@2.001/css/SourceHanSansCN.css" />
           </>
         )}
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
