@@ -113,6 +113,9 @@ a {
       padding: 0;
     }
     &.tag-link {
+      &::before {
+        content: "#";
+      }
     }
   }
 
@@ -157,7 +160,7 @@ a {
 }
 
 .page {
-  max-width: 800px;
+  max-width: calc(#{map.get($breakpoints, desktop)} + 300px);
   margin: 0 auto;
   & article {
     & > h1 {

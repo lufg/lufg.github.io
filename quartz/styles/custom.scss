@@ -1,165 +1,206 @@
 @use "./base.scss";
 
-// --- Restore Quartz Default Layout while hiding sidebars and graph ---
+// --- Custom Styles from Website Format ---
 
-// 1. Hide sidebars (left and right)
-.left, .right {
-    display: none !important;
-}
-
-// 2. Adjust main content grid to occupy full width
+// 1. Layout Container
+// Override grid to remove sidebar columns since we are not using them
 .page > #quartz-body {
     grid-template-columns: minmax(0, 1fr) !important;
-    grid-template-areas:
+    grid-template-areas: 
         "grid-header"
         "grid-center"
         "grid-footer" !important;
 }
 
-// 3. Ensure center content is centered but follows default width (if not specified otherwise)
-.center {
+// Center the content and limit width
+.page .center {
+    max-width: 900px !important;
     margin: 0 auto;
+    padding: 16px 20px;
 }
 
-// 4. Specifically hide Graph view if it's still being rendered by any plugin
-.graph {
+// Hide sidebars completely (they should be empty now, but just in case)
+.left, .right {
     display: none !important;
 }
 
-// 5. Pinchlime-style article enhancements
-article {
-    line-height: 1.8;
-
-    p {
-        margin-bottom: 1.5rem;
-    }
-
-    a {
-        text-decoration: underline;
-        text-underline-offset: 3px;
-
-        &:hover {
+// 2. Header
+header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--lightgray);
+    
+    // Brand (Page Title)
+    .page-title {
+        margin: 0;
+        // flex-grow: 1; // Handled by Spacer component
+        font-size: 1.8rem !important;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+        a { 
+            color: var(--dark); 
             text-decoration: none;
         }
     }
-}
 
-// 6. Header improvements
-.page-header {
-    margin-bottom: 2rem;
-
-    h1 {
-        font-size: 2rem;
-        font-weight: 700;
-    }
-}
-
-// 7. Footer improvements
-footer {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--lightgray);
-    font-size: 0.9rem;
-    color: var(--gray);
-
-    a {
-        color: var(--gray);
-        text-decoration: underline;
-
-        &:hover {
-            color: var(--secondary);
+    // Search Box
+    .search {
+        flex-grow: 0;
+        
+        .search-button {
+            padding: 4px;
+            background: transparent;
+            border: none; // No border
+            box-shadow: none; // No shadow
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            // Hide the text "Search" or "搜索"
+            p {
+                display: none;
+            }
+            
+            // Ensure icon size
+            svg {
+                width: 18px;
+                height: 18px;
+                stroke: var(--dark);
+                min-width: 18px;
+            }
+            
+            &:hover {
+                background-color: transparent; // No hover background
+                opacity: 0.7; // Slight opacity change instead
+            }
         }
     }
-}
-
-// 8. Navigation links in header
-nav {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-nav a {
-    color: var(--darkgray);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.2s ease;
-}
-
-nav a:hover {
-    color: var(--secondary);
-}
-
-@media (max-width: 600px) {
-    nav {
-        gap: 1rem;
-    }
-
-    nav a {
-        font-size: 0.9rem;
-    }
-}
-
-// 9. Posts list - simple list with date and tags
-.section-ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.section-li {
-    margin-bottom: 1.5rem;
-}
-
-.section {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    flex-wrap: wrap;
-
-    .meta {
-        color: var(--gray);
-        font-size: 0.9rem;
-        min-width: 100px;
-        opacity: 0.8;
-    }
-
-    .desc {
-        flex: 1;
-    }
-
-    h3 {
+    
+    // Theme Toggle
+    .darkmode {
         margin: 0;
-        font-size: 1.1rem;
-        font-weight: 500;
-        display: inline;
-    }
-
-    .tags {
-        display: inline-flex;
-        gap: 0.5rem;
-        margin-left: 0.5rem;
-    }
-
-    .tag-link {
-        font-size: 0.8rem;
-        color: var(--secondary);
-        background: none;
-        padding: 0.1rem 0.4rem;
+        padding: 4px;
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+            transition: transform 0.2s ease;
+        }
+        &:hover svg {
+             transform: rotate(15deg);
+        }
     }
 }
 
-@media (max-width: 600px) {
-    .section {
-        flex-direction: column;
-        gap: 0.5rem;
+// 3. Bio Section
+.bio {
+    margin-bottom: 32px;
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.5;
+}
 
-        .meta {
-            min-width: auto;
+// 4. Post List (Recent Notes)
+.recent-notes {
+    // Hide the "Recent Notes" title
+    > h3 { display: none; }
+
+    ul.recent-ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li.recent-li {
+        padding: 16px 0;
+        border-bottom: 1px solid transparent;
+        border-top: 1px solid var(--lightgray);
+        margin-top: 0 !important;
+        
+        &:first-child {
+            border-top: none;
         }
 
-        .tags {
-            margin-left: 0;
+        .section {
+            // Meta: Date + Tags
+            .post-meta {
+                font-size: 0.8rem;
+                color: var(--gray);
+                margin-bottom: 6px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                
+                .post-date {
+                    font-variant-numeric: tabular-nums;
+                }
+                
+                ul.tags {
+                    display: inline-flex;
+                    gap: 10px;
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    
+                    li {
+                        margin: 0;
+                        padding: 0;
+                        border: none;
+                        
+                        a.tag-link {
+                            background: none;
+                            border: none;
+                            padding: 0;
+                            margin: 0;
+                            color: var(--secondary);
+                            font-weight: 500;
+                            opacity: 0.9;
+                            
+                            &:hover {
+                                opacity: 1;
+                                text-decoration: underline;
+                                background: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Title
+            .desc h3 {
+                margin: 0 0 6px 0;
+                font-size: 1.1rem;
+                font-weight: 600;
+                line-height: 1.4;
+                
+                a {
+                    color: var(--dark);
+                    text-decoration: none;
+                }
+            }
+            
+            // Excerpt
+            .post-excerpt {
+                font-size: 0.95rem;
+                color: var(--gray);
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                margin: 0;
+                font-style: normal;
+            }
         }
     }
+}
+
+// Hide default Page Title on Index page content if needed
+// (We already removed it from layout, but index.md content might render title if frontmatter says so, usually Quartz renders article title)
+article > h1.article-title {
+    display: none;
 }

@@ -81,7 +81,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
                 <div>
                   <h2>
                     <a class="internal tag-link" href={href}>
-                      #{tag.replace(/^#+/, "")}
+                      {tag}
                     </a>
                   </h2>
                   {content && <p>{content}</p>}
