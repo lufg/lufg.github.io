@@ -9,3 +9,7 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
+preview-homepage.html
+setup-symlink.ps1
+publish.ps1
+publish.bat

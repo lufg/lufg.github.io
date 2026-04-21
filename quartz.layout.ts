@@ -23,7 +23,7 @@ export const sharedPageComponents: SharedLayout = {
       GitHub: "https://github.com/lufrank",
       RSS: "/index.xml",
     },
-    customFooter: "© 2026 Frank Lu",
+    signature: "勿令仓促的步履踩碎灵性的次序，当于静默中寻觅永恒的度量。",
   }),
 }
 
