@@ -64,42 +64,61 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
     list = list.slice(0, limit)
   }
 
-  return (
-    <ul class="section-ul">
-      {list.map((page) => {
-        const title = page.frontmatter?.title
-        const tags = page.frontmatter?.tags ?? []
+  const groups = list.reduce<Array<{ year: string; pages: QuartzPluginData[] }>>((acc, page) => {
+    const year = page.dates ? String(getDate(cfg, page)!.getFullYear()) : "未注明时间"
+    const current = acc[acc.length - 1]
+    if (current?.year === year) {
+      current.pages.push(page)
+    } else {
+      acc.push({ year, pages: [page] })
+    }
+    return acc
+  }, [])
 
-        return (
-          <li class="section-li">
-            <div class="section">
-              <p class="meta">
-                {page.dates && <Date date={getDate(cfg, page)!} locale={cfg.locale} />}
-              </p>
-              <div class="desc">
-                <h3>
-                  <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
-                    {title}
-                  </a>
-                </h3>
-              </div>
-              <ul class="tags">
-                {tags.map((tag) => (
-                  <li>
-                    <a
-                      class="internal tag-link"
-                      href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
-                    >
-                      {tag}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </li>
-        )
-      })}
-    </ul>
+  return (
+    <div class="section-archive">
+      {groups.map((group) => (
+        <section class="archive-year">
+          <h2 class="archive-year-title">{group.year}</h2>
+          <ul class="section-ul">
+            {group.pages.map((page) => {
+              const title = page.frontmatter?.title
+              const tags = page.frontmatter?.tags ?? []
+
+              return (
+                <li class="section-li">
+                  <div class="section">
+                    <p class="meta">
+                      {page.dates && <Date date={getDate(cfg, page)!} locale={cfg.locale} />}
+                    </p>
+                    <div class="desc">
+                      <h3>
+                        <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
+                          {title}
+                        </a>
+                      </h3>
+                      {page.description && <p class="post-excerpt">{page.description}</p>}
+                    </div>
+                    <ul class="tags">
+                      {tags.map((tag) => (
+                        <li>
+                          <a
+                            class="internal tag-link"
+                            href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
+                          >
+                            #{tag.replace(/^#+/, "")}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+              )
+            })}
+          </ul>
+        </section>
+      ))}
+    </div>
   )
 }
 

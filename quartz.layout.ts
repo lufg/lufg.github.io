@@ -10,8 +10,8 @@ export const sharedPageComponents: SharedLayout = {
     Component.Spacer(),
     NavLinks({
       links: [
-        { label: "Posts", href: "/posts/" },
-        { label: "About", href: "/about/" },
+        { label: "文章", href: "/posts/" },
+        { label: "关于", href: "/about/" },
       ],
     }),
     Component.Search(),
@@ -48,7 +48,12 @@ export const defaultContentPageLayout: PageLayout = {
     }),
   ],
   left: [],
-  right: [],
+  right: [
+    Component.ConditionalRender({
+      component: Component.TableOfContents(),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
+  ],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
