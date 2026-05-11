@@ -11,7 +11,7 @@ export const sharedPageComponents: SharedLayout = {
     NavLinks({
       links: [
         { label: "文章", href: "/posts/" },
-        { label: "关于", href: "/about/" },
+        { label: "关于", href: "/about" },
       ],
     }),
     Component.Search(),

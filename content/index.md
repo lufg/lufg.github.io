@@ -3,7 +3,8 @@ title: ""
 ---
 
 <section class="bio">
-  <p class="home-statement">在喧哗中练习安静，在阅读中整理生命。<br>这里记录信仰、学习、投资与写作，也记录一个人如何慢慢成为自己。</p>
+  <p class="home-kicker">微光 / 信仰、阅读、理财、学习、写作</p>
+  <p class="home-statement">在喧哗中练习安静，<br>在阅读中整理生命。</p>
   <p class="home-identity">基督徒 / 自由投资人 / 终身学习者。关注信仰、教育、理财、阅读和 AI。</p>
 </section>
 
